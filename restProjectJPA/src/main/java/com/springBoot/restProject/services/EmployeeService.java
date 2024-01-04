@@ -9,6 +9,6 @@ public interface EmployeeService {
     Employee findById(int id);
 
     Employee save(Employee employee);
-    Employee update(Employee employee);
-    Boolean delete(int Id);
+//    Employee update(Employee employee);
+//    Boolean delete(int Id);
 }

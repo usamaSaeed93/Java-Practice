@@ -1,6 +1,6 @@
 package com.springBoot.restProject.restController;
 
-import com.springBoot.restProject.dao.EmployeeDAO;
+
 import com.springBoot.restProject.entity.Employee;
 import com.springBoot.restProject.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +38,13 @@ public class EmployeeRestController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeService.save(employee);
     }
-    @PutMapping("/employees")
-    public Employee updateEmployee(@RequestBody Employee employee) {
-        return employeeService.update(employee);
-    }
-    @DeleteMapping("/employee/{employeeId}")
-    public Boolean deleteEmployee(@PathVariable int employeeId){
-        return employeeService.delete(employeeId);
-    }
+//    @PutMapping("/employees")
+//    public Employee updateEmployee(@RequestBody Employee employee) {
+//        return employeeService.update(employee);
+//    }
+//    @DeleteMapping("/employee/{employeeId}")
+//    public Boolean deleteEmployee(@PathVariable int employeeId){
+//        return employeeService.delete(employeeId);
+//    }
 }
 

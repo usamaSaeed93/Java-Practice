@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Reference CSS FILES -->
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>User Form</title>
 </head>
 <body>
-<p th:text="${currentDate}">Time on the server is ${currentDate} </p>
+<form th:action="@{/userForm}" th:object="${user}" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" th:field="*{username}" />
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" th:field="*{email}" />
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    </div>
+    <div>
+        <label>Age:</label>
+        <input type="number" th:field="*{age}" />
+        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
