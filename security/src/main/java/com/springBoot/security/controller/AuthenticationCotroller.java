@@ -1,5 +1,9 @@
-package com.springBoot.security.auth;
+package com.springBoot.security.controller;
 
+import com.springBoot.security.auth.AuthenticationRequest;
+import com.springBoot.security.auth.AuthenticationResponse;
+import com.springBoot.security.auth.RegisterRequest;
+import com.springBoot.security.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,18 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationCotroller {
+    private final AuthenticationService authenticationService;
+
     @PostMapping("/register")
-    public ResponseEntity<AuthenticatonResponse> register(
+    public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ) {
-        return null;
+        return ResponseEntity.ok(authenticationService.register(request));
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticatonResponse> authenticate(
+    public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
     ) {
-        return null;
+        return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
 }
